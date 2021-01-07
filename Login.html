@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body  >
+   <div class="container-fluid"  style="background:url(i.jpg) no-repeat;background-size: contain; height: 900px;width: 100%;">
+   
+          <form style="padding-top: 150px;padding-left: 480px;" onsubmit="return valida()" name="myform">
+           <h3 style="color: white;margin-left:110px; margin-bottom: 40px;">LOGIN FORM</h3>
+               <h4 style="color: white">Username:</h4>
+              <input type="text" class="form-control" style="background-color: white;width: 400px;margin-bottom: 40px;opacity: 0.6" placeholder="Enter your name" name="fname">
+              <h4 style="color: white">Email:</h4>
+               <input type="email" class="form-control" style="width: 400px;margin-bottom: 40px;opacity: 0.6;background-color: white" placeholder="Enter your email" name="emai">
+               <h4 style="color: white">Password:</h4>
+                <input type="password" class="form-control" style="width: 400px;margin-bottom: 40px;opacity: 0.6;background-color: white" placeholder="Enter password" name=pwd>
+              <button type="submit" class="btn-primary" style="margin-left: 150px;">SUBMIT</button>
+          </form>
+       
+      
+   </div>
+   <script>
+    function valida(){
+        var x=document.forms['myform'];
+        var fname=x.elements['fname'].value;
+            
+            var nameReg = /^[a-zA-Z]+$/;
+            if (!(fname.match(nameReg))) {
+                alert("invalid name");
+                return false;
+            }
+     var emai=x.elements["email"].value;
+             var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!(emai.match(reg))) {
+                console.log("invalid email");
+                alert("invalid email");
+
+                return false;
+            }
+        var pwd=x.elements['pwd'].value;
+        var pwdreg=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+                if(!(pwd.match(pwdreg))){
+            
+                   alert(`Invalid password
+password must contain 8 to 15 characters with at least one lowercase letter, one uppercase letter, one numeric digit, and one special character`);
+                    return false;
+                         
+                   }
+            
+        
+        
+    }
+    
+    </script>
+    
+</body>
+</html>
